@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-unused-vars
 var db = require("../models");
 var passport = require("..config/passport.js");
 

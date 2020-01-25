@@ -2,6 +2,7 @@
 var passport = require("passport"),
   LocalStrategy = require("passport-local").Strategy;
 
+// eslint-disable-next-line no-unused-vars
 var db = require("../models");
 
 passport.use(
