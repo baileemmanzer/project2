@@ -1,5 +1,5 @@
-DROP DATABASE IF EXISTS testdb;
-CREATE DATABASE testdb;
+DROP DATABASE IF EXISTS exampledb;
+CREATE DATABASE exampledb;
 DROP DATABASE IF EXISTS fridge_friend_db;
 CREATE DATABASE fridge_friend_db;
 
