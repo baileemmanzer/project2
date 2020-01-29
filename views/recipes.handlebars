@@ -22,5 +22,9 @@
           {{#each recipe}}
           {{> recipe-block}}
           {{/each}}
-
+      </div>
+      <div>
+        {{#with viewRecipe}}
+        {{> view-recipe}}
+        {{/with}}
       </div>
