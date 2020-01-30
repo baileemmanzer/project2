@@ -25,5 +25,21 @@ module.exports = function(sequelize, DataTypes) {
       null
     );
   });
+
+  User.associate = function(models) {
+    // Associating Author with Posts
+    // When an Author is deleted, also delete any associated Posts
+    User.hasOne(models.ShoppingList, {
+      onDelete: "cascade"
+    });
+  };
+  User.associate = function(models) {
+    // Associating Author with Posts
+    // When an Author is deleted, also delete any associated Posts
+    User.hasOne(models.KitchenInventory, {
+      onDelete: "cascade"
+    });
+  };
+  //creates the table
   return User;
 };

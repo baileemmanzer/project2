@@ -1,11 +1,34 @@
- <div class="container" id="logInForm">
-        <h1>Fridge Friend</h1>
-        <p id="signIn">Register your account or sign in to view your pantry items and search for recipes.</p>
-      <div>
-        <input type="email" id="txtEmail" placeholder="Enter email"/><br/>
-        <input type="password" id="password" placeholder="Enter password"/><br/>
-        <button id="btnLogin" class="btn btn-primary">Log in</button>
-        <button id="btnSignUp" class="btn btn-primary">Register</button>
-      </div>
-    </div>
-    </div>
+<div class="container" id="logInForm">
+	<h1>Fridge Friend</h1>
+	<p id="signIn">Register your account or sign in to view your pantry items and search for recipes.</p>
+	<div>
+		<div class="container">
+			<div class="d-flex justify-content-center h-100">
+				<div class="card">
+					<div class="card-header">
+						<h3>Sign In</h3>
+					</div>
+					<form>
+						<div class="form-group">
+							<label for="exampleInputEmail1">Email address</label>
+							<input type="email" id="email" class="form-control" id="exampleInputEmail1"
+								aria-describedby="emailHelp">
+							<small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
+								else.</small>
+						</div>
+						<div class="form-group">
+							<label for="exampleInputPassword1">Password</label>
+							<input type="password" id="password" class="form-control" id="exampleInputPassword1">
+						</div>
+						<div class="form-group">
+                        	<button type="submit" class="btn float-left login_btn" id="loginButton" name="loginButton">Login</button>
+                    	</div>
+						<div class="form-group">
+                        	<button type="submit" class="btn float-right register_btn" id="registerButton" name="registerButton">Register</button>
+                    	</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
