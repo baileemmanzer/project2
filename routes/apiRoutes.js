@@ -2,8 +2,11 @@ var db = require("../models");
 var passport = require("../config/passport");
 
 module.exports = function(app) {
-  app.post("/api/login", passport.authenticate("local"), function(req, res) {
-    res.json("/members");
+  app.post("/api/login", passport.authenticate("local", {
+    failureRedirect: "/",
+    failureFlash: "true"
+  }), (req, res) => {
+    res.json("/recipes");
   });
   //Route for signing up a user. If user is created successfully, go to log in, otherwise send back an error
   app.post("/api/signup", function(req, res) {
@@ -17,7 +20,6 @@ module.exports = function(app) {
       })
       .catch(function(err) {
         console.log(err);
-        res.json(err);
       });
   });
   //Route to log user out

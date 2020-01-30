@@ -39,7 +39,7 @@ module.exports = function(sequelize, DataTypes) {
     });
   };
   //syncs with DB
-  KitchenInventory.sync();
+  // KitchenInventory.sync();
   //creates the table
   return KitchenInventory;
 };
