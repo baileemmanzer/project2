@@ -25,18 +25,17 @@ module.exports = function(app) {
     req.logout();
     res.redirect("/");
   });
+
+  app.post("/api/kitcheninventory", function(req, res) {
+    db.KitchenInventory.create(req.body).then(function(newItem) {
+      res.json(newItem);
+    });
+  });
 };
 // Get all examples
 // app.get("/api/examples", function(req, res) {
 //   db.Example.findAll({}).then(function(dbExamples) {
 //     res.json(dbExamples);
-//   });
-// });
-
-// // Create a new example
-// app.post("/api/examples", function(req, res) {
-//   db.Example.create(req.body).then(function(dbExample) {
-//     res.json(dbExample);
 //   });
 // });
 
