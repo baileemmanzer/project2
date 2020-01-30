@@ -1,0 +1,36 @@
+{{> nav-block}}
+<div class="container">
+  <div class="row">
+    <div class="col-6">
+      <h2>Placeholder - Full List of Recipe Ingredients Goes Here</h2>
+      <p>Allow users to click on which ingredients they want to search for</p>
+      <p>This data comes from the database</p>
+      {{#each ingredients}}
+      {{> ingredients-block}}
+      {{/each}}
+    </div>
+    <div class="col-6">
+      <h2>Add New Items</h2>
+      <form>
+        <div class="form-group">
+          <label for="ingredient">Item:</label>
+          <input type="text" class="form-control" id="ingredient" placeholder="Enter Item Name">
+        </div>
+        <div class="form-group">
+          <label for="quantity">Quantity:</label>
+          <input type="text" class="form-control" id="quantity" placeholder="Enter Quantity">
+        </div>
+        <div class="form-group">
+          <label for="expiration-date">Expiration:</label>
+          <input type="text" class="form-control" id="expiration-date" placeholder="Enter Expiration Date(MM/DD/YY)">
+        </div>
+        <div class="form-group">
+          <label for="frequency">Freqency:</label>
+          <input type="text" class="form-control" id="frequency" placeholder="Enter Frequency(per week)">
+        </div>
+        <button id="submit-ingredient">Create</button>
+      </form>
+
+    </div>
+  </div>
+</div>
