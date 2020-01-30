@@ -5,12 +5,7 @@ var apiKey = process.env.SPOONACULAR_API;
 module.exports = function(app) {
   // Load index page
   app.get("/", function(req, res) {
-    db.Example.findAll({}).then(function(dbExamples) {
-      res.render("index", {
-        msg: "Welcome!",
-        examples: dbExamples
-      });
-    });
+    res.render("index");
   });
 
   // Load example page and pass in an example by id
@@ -37,6 +32,12 @@ module.exports = function(app) {
   app.get("/expiring", function(req, res) {
     db.Expiring.findAll({}).then(function(result) {
       res.render("expiring", { expiringItems: result });
+    });
+  });
+
+  app.get("/my-fridge", function(req, res) {
+    db.KitchenInventory.findAll({}).then(function(result) {
+      res.render("my-fridge", { ingredients: result });
     });
   });
 
