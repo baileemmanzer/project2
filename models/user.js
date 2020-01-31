@@ -5,10 +5,10 @@ module.exports = function(sequelize, DataTypes) {
     email: {
       type: DataTypes.STRING,
       allowNull: false,
-      unique: true,
-      validate: {
-        isEmail: true
-      }
+      unique: true
+      // validate: {
+      //   isEmail: true
+      // }
     },
     password: {
       type: DataTypes.STRING,
@@ -32,10 +32,6 @@ module.exports = function(sequelize, DataTypes) {
     User.hasOne(models.ShoppingList, {
       onDelete: "cascade"
     });
-  };
-  User.associate = function(models) {
-    // Associating Author with Posts
-    // When an Author is deleted, also delete any associated Posts
     User.hasOne(models.KitchenInventory, {
       onDelete: "cascade"
     });
