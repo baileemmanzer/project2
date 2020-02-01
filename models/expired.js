@@ -1,6 +1,6 @@
 module.exports = function(sequelize, DataTypes) {
-  var Expiring = sequelize.define(
-    "Expiring",
+  var Expired = sequelize.define(
+    "Expired",
     {
       ingredient: {
         type: DataTypes.STRING,
@@ -35,5 +35,5 @@ module.exports = function(sequelize, DataTypes) {
       freezeTableName: true
     }
   );
-  return Expiring;
+  return Expired;
 };

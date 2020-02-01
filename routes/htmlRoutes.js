@@ -1,6 +1,8 @@
 var db = require("../models");
 var unirest = require("unirest");
 var apiKey = process.env.SPOONACULAR_API;
+var moment = require("moment");
+moment().format();
 
 module.exports = function(app) {
   // Load index page
@@ -55,8 +57,18 @@ module.exports = function(app) {
   });
 
   app.get("/expired-items", function(req, res) {
-    db.Expiring.findAll({}).then(function(result) {
-      res.render("expired-items", { expiringItems: result });
+    db.KitchenInventory.findAll({}).then(function(result) {
+      var expiredIngredients = [];
+      for (var i = 0; i < result.length; i++) {
+        var items = result[i].dataValues;
+        console.log(items);
+        var expDate = moment(items.expirationDate).format("MM-DD-YYYY");
+        if (moment(expDate).isBefore(moment())) {
+          expiredIngredients.push(items);
+        }
+      }
+      console.log("ing" + expiredIngredients[0]);
+      res.render("expired-items", { expiredItems: expiredIngredients });
     });
   });
 
