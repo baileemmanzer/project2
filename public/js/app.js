@@ -2,7 +2,7 @@ $(document).ready(function() {
   $("#registerButton").on("click", function(event) {
     event.preventDefault();
     var userData = {
-      email: $("#email")
+      phone: $("#phone")
         .val()
         .trim(),
       password: $("#password")
@@ -22,7 +22,7 @@ $(document).ready(function() {
   $("#loginButton").on("click", function(event) {
     event.preventDefault();
     var userData = {
-      email: $("#email")
+      phone: $("#phone")
         .val()
         .trim(),
       password: $("#password")
