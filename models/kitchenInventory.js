@@ -14,20 +14,20 @@ module.exports = function(sequelize, DataTypes) {
         allowNull: false,
         validate: {
           len: [1]
-        },
-        expirationDate: {
-          type: DataTypes.DATEONLY,
-          allowNull: true,
-          validate: {
-            len: [1]
-          }
-        },
-        frequency: {
-          type: DataTypes.INTEGER,
-          allowNull: true,
-          validate: {
-            len: [1]
-          }
+        }
+      },
+      expirationDate: {
+        type: DataTypes.DATEONLY,
+        allowNull: true,
+        validate: {
+          len: [1]
+        }
+      },
+      frequency: {
+        type: DataTypes.INTEGER,
+        allowNull: true,
+        validate: {
+          len: [1]
         }
       }
     },
