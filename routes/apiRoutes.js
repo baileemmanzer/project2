@@ -5,7 +5,7 @@ module.exports = function(app) {
   app.post("/api/login", passport.authenticate("local", {
     failureRedirect: "/",
     failureFlash: "true"
-  }), (req, res) => {
+  }), function (req, res) {
     res.json("/recipes");
   });
   //Route for signing up a user. If user is created successfully, go to log in, otherwise send back an error

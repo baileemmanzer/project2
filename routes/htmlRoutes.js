@@ -48,7 +48,7 @@ module.exports = function(app) {
       });
   });
 
-  app.get("/expiring", function(req, res) {
+  app.get("/", function(req, res) {
     db.Expiring.findAll({}).then(function(result) {
       res.render("expiring", { expiringItems: result });
     });
