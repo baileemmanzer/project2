@@ -4,7 +4,7 @@ var exphbs = require("express-handlebars");
 var passport = require("passport");
 var flash = require("connect-flash");
 var db = require("./models");
-var cron = require("./lib/cron");
+// var cron = require("./lib/cron");
 
 var app = express();
 var PORT = process.env.PORT || 3000;
@@ -57,7 +57,7 @@ db.sequelize.sync(syncOptions).then(function() {
 });
 
 // Starts Cron
-cron.start();
+// cron.start();
 
 // Dont uncomment this code or it will send a text message using our trial dollars
 // client.messages

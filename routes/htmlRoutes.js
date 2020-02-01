@@ -2,6 +2,7 @@ var db = require("../models");
 var unirest = require("unirest");
 var apiKey = process.env.SPOONACULAR_API;
 var moment = require("moment");
+var isAuthenticated = require("../lib/isAuthenticated");
 moment().format();
 
 module.exports = function(app) {
@@ -10,14 +11,18 @@ module.exports = function(app) {
     res.render("index");
   });
 
-  app.get("/find-recipes", function(req, res) {
-    db.KitchenInventory.findAll({}).then(function(result) {
+  app.get("/find-recipes", isAuthenticated, function(req, res) {
+    db.KitchenInventory.findAll({
+      where: {
+        UserId: req.user.id
+      }
+    }).then(function(result) {
       console.log(result);
       res.render("find-recipes", { ingredients: result });
     });
   });
   // Load example page and pass in an example by id
-  app.get("/recipes/:ingredients", function(req, res) {
+  app.get("/recipes/:ingredients", isAuthenticated, function(req, res) {
     var ingredients = req.params.ingredients;
     var queryUrl =
       "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients?number=5&ranking=1&ingredients=" +
@@ -36,7 +41,7 @@ module.exports = function(app) {
         }
       });
   });
-  app.get("/view-recipe/:id", function(req, res) {
+  app.get("/view-recipe/:id", isAuthenticated, function(req, res) {
     id = req.params.id;
     var queryUrl =
       "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/" +
@@ -56,8 +61,12 @@ module.exports = function(app) {
       });
   });
 
-  app.get("/expired-items", function(req, res) {
-    db.KitchenInventory.findAll({}).then(function(result) {
+  app.get("/expired-items", isAuthenticated, function(req, res) {
+    db.KitchenInventory.findAll({
+      where: {
+        UserId: req.user.id
+      }
+    }).then(function(result) {
       var expiredIngredients = [];
       for (var i = 0; i < result.length; i++) {
         var items = result[i].dataValues;
@@ -67,20 +76,26 @@ module.exports = function(app) {
           expiredIngredients.push(items);
         }
       }
-      console.log("ing" + expiredIngredients[0]);
       res.render("expired-items", { expiredItems: expiredIngredients });
     });
   });
 
-  app.get("/my-fridge", function(req, res) {
-    db.KitchenInventory.findAll({}).then(function(result) {
-      console.log(result);
+  app.get("/my-fridge", isAuthenticated, function(req, res) {
+    db.KitchenInventory.findAll({
+      where: {
+        UserId: req.user.id
+      }
+    }).then(function(result) {
       res.render("my-fridge", { ingredients: result });
     });
   });
 
-  app.get("/shopping-list", function(req, res) {
-    db.ShoppingList.findAll({}).then(function(result) {
+  app.get("/shopping-list", isAuthenticated, function(req, res) {
+    db.ShoppingList.findAll({
+      where: {
+        UserId: req.user.id
+      }
+    }).then(function(result) {
       console.log(result);
       res.render("shopping-list", { ingredients: result });
     });

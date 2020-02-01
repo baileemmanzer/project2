@@ -24,8 +24,9 @@ module.exports = function(app) {
   });
   //Route to log user out
   app.get("/logout", function(req, res) {
-    req.logout();
-    res.redirect("/");
+    req.session.destroy(function (err) {
+      res.redirect('/'); //Inside a callback… bulletproof!
+    });
   });
 
   app.post("/api/kitcheninventory", function(req, res) {
@@ -41,17 +42,10 @@ module.exports = function(app) {
       res.json(newItem);
     });
   });
-};
-// Get all examples
-// app.get("/api/examples", function(req, res) {
-//   db.Example.findAll({}).then(function(dbExamples) {
-//     res.json(dbExamples);
-//   });
-// });
 
-// // Delete an example by id
-// app.delete("/api/examples/:id", function(req, res) {
-//   db.Example.destroy({ where: { id: req.params.id } }).then(function(dbExample) {
-//     res.json(dbExample);
-//   });
-// });
+  app.delete("/api/kitcheninventory/:id", function(req, res) {
+    db.KitchenInventory.destroy({where: {id: req.params.id } }).then(function(deleted){
+      res.json(deleted)
+    })
+  })
+};
