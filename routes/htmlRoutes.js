@@ -67,6 +67,13 @@ module.exports = function(app) {
     });
   });
 
+  app.get("/shopping-list", function(req, res) {
+    db.ShoppingList.findAll({}).then(function(result) {
+      console.log(result);
+      res.render("shopping-list", { ingredients: result });
+    });
+  });
+
   // Render 404 page for any unmatched routes
   app.get("*", function(req, res) {
     res.render("404");

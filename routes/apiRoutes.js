@@ -6,13 +6,13 @@ module.exports = function(app) {
     failureRedirect: "/",
     failureFlash: "true"
   }), (req, res) => {
-    res.json("/recipes");
+    res.json("/my-fridge");
   });
   //Route for signing up a user. If user is created successfully, go to log in, otherwise send back an error
   app.post("/api/signup", function(req, res) {
     console.log(req.body);
     db.User.create({
-      email: req.body.email,
+      phone: req.body.phone,
       password: req.body.password
     })
       .then(function() {
