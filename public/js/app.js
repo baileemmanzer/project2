@@ -82,6 +82,7 @@ $(document).ready(function() {
       console.log("Added new ingredient to your shopping list");
       location.reload();
     });
+  });
 
   $(".submit-ingr").on("click", function(event) {
     event.preventDefault();
@@ -92,7 +93,6 @@ $(document).ready(function() {
     ingrArray = ingrArray.join(",+");
     console.log(ingrArray);
     window.location.replace("/recipes/:" + ingrArray);
-
   });
 
   $(".view-recipe").on("click", function(event) {
