@@ -48,14 +48,15 @@ module.exports = function(app) {
       });
   });
 
-  app.get("/", function(req, res) {
+  app.get("/expired-items", function(req, res) {
     db.Expiring.findAll({}).then(function(result) {
-      res.render("expiring", { expiringItems: result });
+      res.render("expired-items", { expiringItems: result });
     });
   });
 
   app.get("/my-fridge", function(req, res) {
     db.KitchenInventory.findAll({}).then(function(result) {
+      console.log(result);
       res.render("my-fridge", { ingredients: result });
     });
   });

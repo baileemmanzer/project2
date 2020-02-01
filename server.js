@@ -3,8 +3,8 @@ var express = require("express");
 var exphbs = require("express-handlebars");
 var passport = require("passport");
 var flash = require("connect-flash");
-
 var db = require("./models");
+var cron = require("./lib/cron");
 
 // for twilio later
 // var client = require("./lib/twilio.js");
@@ -58,6 +58,9 @@ db.sequelize.sync(syncOptions).then(function() {
     );
   });
 });
+
+// Starts Cron
+cron.start();
 
 // Dont uncomment this code or it will send a text message using our trial dollars
 // client.messages
