@@ -10,3 +10,12 @@
   {{> view-recipe}}
   {{/with}}
 </div>
+
+<div class="container">
+  {{#each ingredients}}
+      {{> ingredient-list}}
+  {{/each}}
+</div>
+<div class="container">
+<button type="button" class="btn btn-secondary">Submit</button>
+</div>

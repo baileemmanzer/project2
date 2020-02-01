@@ -8,6 +8,12 @@ module.exports = function(app) {
     res.render("index");
   });
 
+  app.get("/find-recipes", function(req, res) {
+    db.KitchenInventory.findAll({}).then(function(result) {
+      console.log(result);
+      res.render("recipes", { ingredients: result });
+    });
+  });
   // Load example page and pass in an example by id
   app.get("/recipes", function(req, res) {
     var ingredients = "banana";
@@ -58,6 +64,13 @@ module.exports = function(app) {
     db.KitchenInventory.findAll({}).then(function(result) {
       console.log(result);
       res.render("my-fridge", { ingredients: result });
+    });
+  });
+
+  app.get("/shopping-list", function(req, res) {
+    db.ShoppingList.findAll({}).then(function(result) {
+      console.log(result);
+      res.render("shopping-list", { ingredients: result });
     });
   });
 

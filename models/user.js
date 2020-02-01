@@ -2,12 +2,12 @@ var bcrypt = require("bcryptjs");
 
 module.exports = function(sequelize, DataTypes) {
   var User = sequelize.define("User", {
-    email: {
-      type: DataTypes.STRING,
+    phone: {
+      type: DataTypes.BIGINT,
       allowNull: false,
       unique: true
       // validate: {
-      //   isEmail: true
+      //   isphone: true
       // }
     },
     password: {
