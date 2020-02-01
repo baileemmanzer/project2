@@ -6,9 +6,6 @@ var flash = require("connect-flash");
 var db = require("./models");
 var cron = require("./lib/cron");
 
-// for twilio later
-// var client = require("./lib/twilio.js");
-
 var app = express();
 var PORT = process.env.PORT || 3000;
 
