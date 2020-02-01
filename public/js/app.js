@@ -62,4 +62,14 @@ $(document).ready(function() {
       location.reload();
     });
   });
+  $(".submit-ingr").on("click", function(event) {
+    event.preventDefault();
+    var ingrArray = [];
+    $.each($("input[name='ingredient']:checked"), function() {
+      ingrArray.push($(this).val());
+    });
+    ingrArray = ingrArray.join(",+");
+    console.log(ingrArray);
+    window.location.replace("/recipes/:" + ingrArray);
+  });
 });
