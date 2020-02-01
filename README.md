@@ -1,5 +1,5 @@
 # FRIDGE FRIEND
-![image](public/images/ForTheREADME.png)
+![image](public/images/README.png)
 Cant decide what to eat? Forgot that milk was about to expire, but you already went shopping? Fridge Friend is a full stack web application for people who want an easy and convenient way to manage their food and shopping endeavors. Keep track of your fridge, pantry, grocery shopping list, and favorite recipes all in one place!
 
 ## How to Use the App [A Guide]
