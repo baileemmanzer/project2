@@ -94,4 +94,15 @@ $(document).ready(function() {
     window.location.replace("/recipes/:" + ingrArray);
 
   });
+
+  $(".view-recipe").on("click", function(event) {
+    event.preventDefault();
+    var id = $(this).data("id");
+    console.log(id);
+    $.ajax("/view-recipe/:" + id, {
+      type: "GET"
+    }).then(function() {
+      window.location.replace("/view-recipe/" + id);
+    });
+  });
 });

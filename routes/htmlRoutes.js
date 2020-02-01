@@ -34,8 +34,8 @@ module.exports = function(app) {
         }
       });
   });
-  app.get("/view-recipe", function(req, res) {
-    id = "479101";
+  app.get("/view-recipe/:id", function(req, res) {
+    id = req.params.id;
     var queryUrl =
       "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/" +
       id +
