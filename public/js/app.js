@@ -53,6 +53,7 @@ $(document).ready(function() {
         .val()
         .trim()
     };
+    console.log(ingredientData);
     $.ajax("/api/kitcheninventory", {
       type: "POST",
       data: ingredientData

@@ -48,7 +48,7 @@ module.exports = function(app) {
       });
   });
 
-  app.get("/expiring", function(req, res) {
+  app.get("/expired-items", function(req, res) {
     db.Expiring.findAll({}).then(function(result) {
       res.render("expiring", { expiringItems: result });
     });
@@ -56,6 +56,7 @@ module.exports = function(app) {
 
   app.get("/my-fridge", function(req, res) {
     db.KitchenInventory.findAll({}).then(function(result) {
+      console.log(result);
       res.render("my-fridge", { ingredients: result });
     });
   });

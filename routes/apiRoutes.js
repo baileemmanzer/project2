@@ -30,6 +30,7 @@ module.exports = function(app) {
 
   app.post("/api/kitcheninventory", function(req, res) {
     db.KitchenInventory.create({...req.body, UserId: req.user.id}).then(function(newItem) {
+      console.log(req.body);
       res.json(newItem);
     });
   });
