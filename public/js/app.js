@@ -62,4 +62,24 @@ $(document).ready(function() {
       location.reload();
     });
   });
+  //Button functionality for shopping list
+  $(document).on("click", "#addToShoppingList", function(event) {
+    event.preventDefault();
+    var sLIngredientData = {
+      ingredient: $("#ingredient")
+        .val()
+        .trim(),
+      quantity: $("#quantity")
+        .val()
+        .trim()
+    };
+    console.log(sLIngredientData);
+    $.ajax("/api/shoppinglist", {
+      type: "POST",
+      data: sLIngredientData
+    }).then(function() {
+      console.log("Added new ingredient to your shopping list");
+      location.reload();
+    });
+  });
 });
