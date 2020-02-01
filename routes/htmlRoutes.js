@@ -8,6 +8,12 @@ module.exports = function(app) {
     res.render("index");
   });
 
+  app.get("/find-recipes", function(req, res) {
+    db.KitchenInventory.findAll({}).then(function(result) {
+      console.log(result);
+      res.render("recipes", { ingredients: result });
+    });
+  });
   // Load example page and pass in an example by id
   app.get("/recipes", function(req, res) {
     var ingredients = "banana";
