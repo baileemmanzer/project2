@@ -63,3 +63,12 @@ $(document).ready(function() {
     });
   });
 });
+
+$("#submit-ingr").on("click", function(event) {
+  event.preventDefault();
+  var ingredient = $(".checked-ingredients").val();
+  var ingrArray = [];
+  ingredient.push(ingrArray);
+  ingrArray = ingrArray.join(",+");
+  window.location.replace("/recipes");
+});
