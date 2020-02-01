@@ -11,12 +11,12 @@ module.exports = function(app) {
   app.get("/find-recipes", function(req, res) {
     db.KitchenInventory.findAll({}).then(function(result) {
       console.log(result);
-      res.render("recipes", { ingredients: result });
+      res.render("find-recipes", { ingredients: result });
     });
   });
   // Load example page and pass in an example by id
-  app.get("/recipes", function(req, res) {
-    var ingredients = "banana";
+  app.get("/recipes/:ingredients", function(req, res) {
+    var ingredients = req.params.ingredients;
     var queryUrl =
       "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients?number=5&ranking=1&ingredients=" +
       ingredients;

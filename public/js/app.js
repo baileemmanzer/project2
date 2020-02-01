@@ -62,6 +62,7 @@ $(document).ready(function() {
       location.reload();
     });
   });
+
   //Button functionality for shopping list
   $(document).on("click", "#addToShoppingList", function(event) {
     event.preventDefault();
@@ -81,5 +82,16 @@ $(document).ready(function() {
       console.log("Added new ingredient to your shopping list");
       location.reload();
     });
+
+  $(".submit-ingr").on("click", function(event) {
+    event.preventDefault();
+    var ingrArray = [];
+    $.each($("input[name='ingredient']:checked"), function() {
+      ingrArray.push($(this).val());
+    });
+    ingrArray = ingrArray.join(",+");
+    console.log(ingrArray);
+    window.location.replace("/recipes/:" + ingrArray);
+
   });
 });
