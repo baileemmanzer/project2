@@ -92,7 +92,7 @@ $(document).ready(function() {
     });
     ingrArray = ingrArray.join(",+");
     console.log(ingrArray);
-    window.location.replace("/recipes/:" + ingrArray);
+    window.location.replace("/recipes/" + ingrArray);
   });
 
   $(".view-recipe").on("click", function(event) {
