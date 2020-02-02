@@ -6,6 +6,10 @@
   float: right;
 }
 
+#nav {
+  margin-bottom: 25px;
+}
+
 #background-banana {
   background-size: contain;
 }
