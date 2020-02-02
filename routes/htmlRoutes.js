@@ -27,7 +27,7 @@ module.exports = function(app) {
   app.get("/recipes/:ingredients", isAuthenticated, function(req, res) {
     var ingredients = req.params.ingredients;
     var queryUrl =
-      "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients?number=5&ranking=1&ingredients=" +
+      "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients?number=10&ranking=1&ingredients=" +
       ingredients;
 
     unirest
