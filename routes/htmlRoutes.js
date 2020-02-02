@@ -11,6 +11,7 @@ module.exports = function(app) {
     res.render("index");
   });
 
+  // Load recipes page
   app.get("/find-recipes", isAuthenticated, function(req, res) {
     db.KitchenInventory.findAll({
       where: {
@@ -21,7 +22,8 @@ module.exports = function(app) {
       res.render("find-recipes", { ingredients: result });
     });
   });
-  // Load example page and pass in an example by id
+
+  // Load recipes page while taking in ingredients
   app.get("/recipes/:ingredients", isAuthenticated, function(req, res) {
     var ingredients = req.params.ingredients;
     var queryUrl =
@@ -41,6 +43,8 @@ module.exports = function(app) {
         }
       });
   });
+
+  // Load view recipe page while taking in a recipe id
   app.get("/view-recipe/:id", isAuthenticated, function(req, res) {
     id = req.params.id;
     var queryUrl =
@@ -61,6 +65,7 @@ module.exports = function(app) {
       });
   });
 
+  // Load the expired items page
   app.get("/expired-items", isAuthenticated, function(req, res) {
     db.KitchenInventory.findAll({
       where: {
@@ -80,6 +85,7 @@ module.exports = function(app) {
     });
   });
 
+  // Load the my fridge page
   app.get("/my-fridge", isAuthenticated, function(req, res) {
     db.KitchenInventory.findAll({
       where: {
@@ -90,6 +96,7 @@ module.exports = function(app) {
     });
   });
 
+  // Load the shopping list page
   app.get("/shopping-list", isAuthenticated, function(req, res) {
     db.ShoppingList.findAll({
       where: {
