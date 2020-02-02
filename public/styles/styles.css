@@ -5,3 +5,42 @@
 .nav-link {
   float: right;
 }
+
+#background-banana {
+  background-size: contain;
+}
+
+.index-page {
+  height: 100vh;
+  background-image: url(/images/README.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: left;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+#logInForm {
+  margin: auto;
+  
+}
+
+#index-header {
+  text-align: center;
+  color: rgb(248, 244, 244);
+}
+
+.sign-in-container {
+  opacity: 90%;
+  margin-top: 40px;
+}
+
+#reg-desc {
+  font-size: 16px;
+}
+
+.sign-in-form {
+  width: 70%;
+  margin: auto;
+}
+
