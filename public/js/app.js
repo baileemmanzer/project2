@@ -1,4 +1,5 @@
 $(document).ready(function() {
+  // Sends registration info from the login page
   $("#registerButton").on("click", function(event) {
     event.preventDefault();
     var userData = {
@@ -19,6 +20,7 @@ $(document).ready(function() {
       });
   });
 
+  // Sends login info from the login page
   $("#loginButton").on("click", function(event) {
     event.preventDefault();
     var userData = {
@@ -37,6 +39,8 @@ $(document).ready(function() {
         console.log(err);
       });
   });
+
+  // Sends a newly added ingredient from the fridge page
   $(document).on("click", "#submit-ingredient", function(event) {
     event.preventDefault();
     var ingredientData = {
@@ -84,6 +88,7 @@ $(document).ready(function() {
     });
   });
 
+  // Takes checked ingredients and sends it to the recipes api to find recipes based on those ingredients
   $(".submit-ingr").on("click", function(event) {
     event.preventDefault();
     var ingrArray = [];
@@ -95,6 +100,7 @@ $(document).ready(function() {
     window.location.replace("/recipes/" + ingrArray);
   });
 
+  // Sends id of a recipe when a recipe is clicked
   $(".view-recipe").on("click", function(event) {
     event.preventDefault();
     var id = $(this).data("id");
@@ -106,7 +112,8 @@ $(document).ready(function() {
     });
   });
 
-  $(document).on("click", ".fridge-delete", function(event) {
+  // Deletes kitchen inventory items if delete button is clicked
+  $(document.body).on("click", ".fridge-delete", function(event) {
     event.preventDefault();
     var ingredient = $(this).data("id");
     console.log(ingredient);
@@ -115,6 +122,16 @@ $(document).ready(function() {
     }).then(function() {
       console.log("Removed ingredient from kitchen");
       location.reload();
+    });
+  });
+
+  // Goes back to the find recipes page if the back button is clicked
+  $(document).on("click", "#recipes-back-button", function(event) {
+    event.preventDefault();
+    $.ajax("/find-recipes", {
+      type: "GET"
+    }).then(function() {
+      window.location.replace("/find-recipes");
     });
   });
 });

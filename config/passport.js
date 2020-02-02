@@ -1,9 +1,9 @@
-//Passport.js
+//Requirements
 var passport = require("passport");
 var LocalStrategy = require("passport-local").Strategy;
-
 var db = require("../models");
 
+// Sets up our authentication
 passport.use(
   new LocalStrategy(
     {

@@ -1,11 +1,13 @@
+// Requirements
 var db = require("../models");
 var passport = require("../config/passport");
 
 module.exports = function(app) {
+  // Login Route
   app.post("/api/login", passport.authenticate("local", {
     failureRedirect: "/",
     failureFlash: "true"
-  }), (req, res) => {
+  }), function(req, res) {
     res.json("/my-fridge");
   });
 
@@ -33,7 +35,7 @@ module.exports = function(app) {
 
   // Route for new kitchen inventory items
   app.post("/api/kitcheninventory", function(req, res) {
-    db.KitchenInventory.create({...req.body, UserId: req.user.id}).then(function(newItem) {
+    db.KitchenInventory.create({...req.body, UserId: req.user.id}).then(function(newItem) { 
       console.log(req.body);
       res.json(newItem);
     });

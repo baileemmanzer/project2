@@ -1,3 +1,4 @@
+// Requirements
 var db = require("../models");
 var unirest = require("unirest");
 var apiKey = process.env.SPOONACULAR_API;
