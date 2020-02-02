@@ -62,6 +62,28 @@ $(document).ready(function() {
       location.reload();
     });
   });
+
+  //Button functionality for shopping list
+  $(document).on("click", "#addToShoppingList", function(event) {
+    event.preventDefault();
+    var sLIngredientData = {
+      ingredient: $("#ingredient")
+        .val()
+        .trim(),
+      quantity: $("#quantity")
+        .val()
+        .trim()
+    };
+    console.log(sLIngredientData);
+    $.ajax("/api/shoppinglist", {
+      type: "POST",
+      data: sLIngredientData
+    }).then(function() {
+      console.log("Added new ingredient to your shopping list");
+      location.reload();
+    });
+  });
+
   $(".submit-ingr").on("click", function(event) {
     event.preventDefault();
     var ingrArray = [];
@@ -70,6 +92,17 @@ $(document).ready(function() {
     });
     ingrArray = ingrArray.join(",+");
     console.log(ingrArray);
-    window.location.replace("/recipes/:" + ingrArray);
+    window.location.replace("/recipes/" + ingrArray);
+  });
+
+  $(".view-recipe").on("click", function(event) {
+    event.preventDefault();
+    var id = $(this).data("id");
+    console.log(id);
+    $.ajax("/view-recipe/:" + id, {
+      type: "GET"
+    }).then(function() {
+      window.location.replace("/view-recipe/" + id);
+    });
   });
 });

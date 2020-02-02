@@ -34,6 +34,13 @@ module.exports = function(app) {
       res.json(newItem);
     });
   });
+  
+  app.post("/api/shoppinglist", function(req, res) {
+    db.ShoppingList.create({...req.body, UserId: req.user.id}).then(function(newItem) {
+      console.log(req.body);
+      res.json(newItem);
+    });
+  });
 };
 // Get all examples
 // app.get("/api/examples", function(req, res) {

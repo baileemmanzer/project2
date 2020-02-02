@@ -1,15 +1,17 @@
 {{> nav-block}}
 <div class="container">
     <br>
+    <br>
+    <h3><strong>Shopping List</strong></h3>
     <div class="row">
         <div class="col-6">
-                {{!-- <img src="../public/images/fridge.jpg"> --}}
             {{#each ingredients}}
-            {{> shopping-list-block}}
+                {{> shopping-block}}
             {{/each}}
         </div>
+
         <div class="col-6">
-            <h2>Add Items</h2>
+            <h5>Add Items to Shopping List</h5>
             <form>
                 <div class="form-group">
                     <label for="ingredient">Item:</label>
@@ -19,7 +21,7 @@
                     <label for="quantity">Quantity:</label>
                     <input type="text" class="form-control" id="quantity" placeholder="Enter Quantity">
                 </div>
-                <button id="submit-ingredient">Add to your shopping list</button>
+                <button id="addToShoppingList">Add to your shopping list</button>
             </form>
         </div>
     </div>
