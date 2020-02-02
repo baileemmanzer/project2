@@ -1,0 +1,27 @@
+body{
+    background-image: url(/images/pink-macarons.jpg);
+    background-size: cover;
+    height: 100vh!important;
+    background-repeat: no-repeat;
+    color: black;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.navbar {
+    background-color:pink;
+  }
+  
+  .navbar-brand, .nav-link {
+    color: white;
+    font-weight: bold;
+    
+  }
+
+  .checked-ingredients {
+      margin-right: 20px;
+  }
+
+  .submit-ingr {
+      background-color: rgb(25, 226, 226)!important;
+      color: black;
+  }

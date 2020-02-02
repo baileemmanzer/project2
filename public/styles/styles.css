@@ -71,6 +71,11 @@
   
 }
 
-/* .ingr-block {
-  margin-left: 200px;
-} */
+.find-recipes {
+  background-image: url(/images/berries.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+  font-family: 'Montserrat', sans-serif;
+}
+
