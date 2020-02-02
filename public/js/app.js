@@ -105,4 +105,16 @@ $(document).ready(function() {
       window.location.replace("/view-recipe/" + id);
     });
   });
+
+  $(document).on("click", ".fridge-delete", function(event) {
+    event.preventDefault();
+    var ingredient = $(this).data("id");
+    console.log(ingredient);
+    $.ajax("/api/kitcheninventory/" + ingredient, {
+      type: "DELETE"
+    }).then(function() {
+      console.log("Removed ingredient from kitchen");
+      location.reload();
+    });
+  });
 });

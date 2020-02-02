@@ -2,8 +2,9 @@
 <div class="container">
     <div class="row">
         <div class="col-6">
-            {{#each expiringItems}}
-                {{> expiring-block}}
+            <h2>Expired Items</h2>
+            {{#each expiredItems}}
+                {{> expired-block}}
             {{/each}}
         </div>
     </div>
