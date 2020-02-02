@@ -1,9 +1,11 @@
+<link rel="stylesheet" href="find-recipes.css">
 {{> nav-block}}
-<div class="container">
+<div class="find-recipes">
+    <div class="container">
+         <h3>Select the ingredients that you would like to include in your recipe search.</h3>
   {{#each ingredients}}
       {{> ingredient-list}}
   {{/each}}
-</div>
-<div class="container">
-<button type="button" class="btn btn-secondary submit-ingr">Submit</button>
+<button type="button" class="btn btn-primary submit-ingr">Submit Ingredients</button>
+    </div>
 </div>

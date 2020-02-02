@@ -19,7 +19,10 @@ module.exports = function(app) {
       }
     }).then(function(result) {
       console.log(result);
-      res.render("find-recipes", { ingredients: result });
+      res.render("find-recipes", {
+        ingredients: result,
+        style: "find-recipes.css"
+      });
     });
   });
 
@@ -36,7 +39,10 @@ module.exports = function(app) {
       .end(function(result) {
         if (result.status === 200) {
           //console.log(result.body);
-          res.render("recipes", { recipe: result.body });
+          res.render("recipes", {
+            recipe: result.body,
+            style: "view-recipe.css"
+          });
         } else {
           res.render("404");
           console.log("this is the end");
@@ -57,7 +63,10 @@ module.exports = function(app) {
       .end(function(result) {
         if (result.status === 200) {
           console.log(result.body);
-          res.render("recipes", { viewRecipe: result.body });
+          res.render("recipes", {
+            viewRecipe: result.body,
+            style: "selected-recipe.css"
+          });
         } else {
           res.render("404");
           console.log("This is the end");

@@ -1,0 +1,18 @@
+body{
+    background-image: url(/images/cupcakes.jpg);
+    background-size: cover;
+    height: 100vh!important;
+    background-repeat: no-repeat;
+    color: black;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.navbar {
+    background-color:pink;
+  }
+  
+  .navbar-brand, .nav-link {
+    color: white;
+    font-weight: bold;
+    
+  }

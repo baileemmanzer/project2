@@ -1,0 +1,43 @@
+body {
+    background-image: url(/images/macarons.jpg);
+    background-size: cover;
+    height: 100vh!important;
+    background-repeat: no-repeat;
+    color: black;
+    font-family: 'Montserrat', sans-serif;
+    background-attachment: fixed;
+    text-align: center;
+    color: white;
+}
+
+.navbar {
+    background-color:pink;
+  }
+  
+  .navbar-brand, .nav-link {
+    color: white;
+    font-weight: bold;
+    
+  }
+
+  .view-recipe {
+      margin-bottom: 10px;
+      margin-top: 5px;
+  }
+
+  .recipe-image {
+      border: 1px solid white;
+      margin: 5px;
+  }
+
+  .recipe {
+      border: 1px solid white;
+      margin-bottom: 20px;
+  }
+
+  #recipe-title {
+      margin-bottom: 5px;
+      font-size: 20px;
+  }
+
+  
