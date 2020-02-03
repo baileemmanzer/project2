@@ -115,8 +115,8 @@ module.exports = function(app) {
     }).then(function(result) {
       console.log(result);
       res.render("shopping-list", {
-        ingredients: result,
-        style: "shopping-list.css"
+        ingredients: result
+        // style: "shopping-list.css"
       });
     });
   });
