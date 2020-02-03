@@ -22,14 +22,14 @@
   }
 
   body {
-    background-image: url(/images/donuts.jpg);
+    /* background-image: url(/images/donuts.jpg);
     height: 100vh!important;
     font-family: 'Montserrat', sans-serif;
     background-size: contain;
     background-repeat: no-repeat;
     background-position: bottom;
     background-position-x: right;
-    background-attachment: fixed;
+    background-attachment: fixed; */
     font-family: 'Montserrat', sans-serif;
   }
 
