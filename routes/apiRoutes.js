@@ -64,7 +64,16 @@ module.exports = function(app) {
     db.KitchenInventory.destroy({where: {id: req.params.id} }).then(function(deleted){
       console.log("Id: " + deleted + " was removed from kitchen inventory");
     });
-    
+  });
+
+  app.post("/api/move-fridge-to-shopping/:id", function(req, res) {
+    db.ShoppingList.create({...req.body, UserId: req.user.id}).then(function(newShopItem) {
+      console.log("expired item moved to shopping list");
+      res.json(newShopItem);
+    });
+    db.KitchenInventory.destroy({where: {id: req.params.id} }).then(function(deleted){
+      console.log("Id: " + deleted + " was removed from kitchen inventory");
+    });
   });
 
   app.post("/api/move-shopping-to-fridge/:id", function(req, res) {
