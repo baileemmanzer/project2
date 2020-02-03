@@ -19,7 +19,7 @@ This application is deployed on Heroku and here is the link --> (app link goes h
 8. Cron
 9. Handlebars
 10. Bootstrap
-11. Sass CSS 
+11. Wow.js
 
 ## Contributors
 > Brittany Huber 
