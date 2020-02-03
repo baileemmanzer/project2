@@ -149,7 +149,7 @@ $(document).ready(function() {
   $(document).on("click", "#shop-fridge", function() {
     event.preventDefault();
     var ingredientId = $(this).data("id");
-    var ingredient = $(this).data("ingredient")
+    var ingredient = $(this).data("ingredient");
     $("#myModal").on("shown.bs.modal", function() {
       $("#myInput").trigger("focus");
     });
