@@ -23,6 +23,6 @@ This application is deployed on Heroku and can be accessed here --> (https://fri
 12. Google Fonts
 
 ## Contributors
-######[Nicholas Herrick](https://github.com/nicholasherrick)
-######[Brittany Huber](https://github.com/bhuber23)
-######[Bailee Manzer](https://github.com/baileemmanzer)
+###### [Nicholas Herrick](https://github.com/nicholasherrick)
+###### [Brittany Huber](https://github.com/bhuber23)
+###### [Bailee Manzer](https://github.com/baileemmanzer)
