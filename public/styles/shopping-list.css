@@ -4,7 +4,7 @@
     
 }
 
-.navbar {
+.navbar, .modalClose {
     background-color:pink;
   }
   
@@ -33,7 +33,9 @@
     font-family: 'Montserrat', sans-serif;
   }
 
-  #addToShoppingList {
+  #addToShoppingList, #shop-submit-final, .addToFridgeBtn {
       background-color: rgb(127, 233, 233)
   }
+
+
   
