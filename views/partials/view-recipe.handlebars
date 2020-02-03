@@ -1,13 +1,15 @@
-<div class="container">
+<div class="container chosen-recipe">
     <div class="row">
-    <div class="col-md-6">
-        <div data-id="{{id}}">
-            <p id="recipe-title">{{title}}</p>
-            <a href="{{sourceUrl}}"><img src={{image}}></a>
-            {{#if winePairing.pairingText}}
-            <p>Wine pairing: {{winePairing.pairingText}}</p>
-            {{/if}}
+        <div class="col-md-6">
+            <div data-id="{{id}}">
+                <p id="recipe-title">Click below to view recipe for: {{title}}</p>
+                <a href="{{sourceUrl}}"><img id="recipe-img" src={{image}}></a>
+                <div id="wine div">
+                    {{#if winePairing.pairingText}}
+                    <p>Suggested wine pairing: {{winePairing.pairingText}}</p>
+                    {{/if}}
+                </div>
+            </div>
         </div>
     </div>
-</div>
 </div>
