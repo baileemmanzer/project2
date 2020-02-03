@@ -90,7 +90,10 @@ module.exports = function(app) {
           expiredIngredients.push(items);
         }
       }
-      res.render("expired-items", { expiredItems: expiredIngredients });
+      res.render("expired-items", {
+        expiredItems: expiredIngredients,
+        style: "expired-items.css"
+      });
     });
   });
 
@@ -113,7 +116,10 @@ module.exports = function(app) {
       }
     }).then(function(result) {
       console.log(result);
-      res.render("shopping-list", { ingredients: result });
+      res.render("shopping-list", {
+        ingredients: result,
+        style: "shopping-list.css"
+      });
     });
   });
 

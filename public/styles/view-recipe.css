@@ -23,6 +23,7 @@ body {
   .view-recipe {
       margin-bottom: 10px;
       margin-top: 5px;
+      background-color: rgb(127, 233, 233);
   }
 
   .recipe-image {

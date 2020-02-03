@@ -44,6 +44,7 @@
   margin: auto;
 }
 
+
 #add-item {
   color: black;
   background-image: url(/images/cake.jpg);
@@ -77,5 +78,13 @@
   background-repeat: no-repeat;
   height: 100vh;
   font-family: 'Montserrat', sans-serif;
+}
+
+.fridge-shop, .fridge-delete, #submit-ingredient, .login_btn, .register_btn {
+  background-color: rgb(127, 233, 233);
+}
+
+.login_btn, .register_btn {
+  margin-bottom: 10px;
 }
 
