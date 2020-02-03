@@ -3,10 +3,16 @@ Can't decide what to eat? Forgot that milk was about to expire, but you already 
 
 ![image](public/images/README.png)
 
-Fridge Friend is a full stack web application that allows users to login via Passport.js with their phone number and a password. The application will then save the users information for the next time they log in along with information about the users fridge inventory and their created shopping list. Users can also select items they have in their kitchen and the site will search for helpful recipes!!
+## Description
 
-## How to Use the App [A Guide]
-This application is deployed on Heroku and can be accessed here --> (https://fridge-friend-banana.herokuapp.com/)
+Fridge Friend is a full stack web application that allows users to first login or register using Passport.js for authentication. The user will create the account using their phone number and a password. The application will then save the users information in a databse for the next time they log in. Once logged in, users will have access to view the items they have in their fridge, view recipes based on the ingredients they've selected which they have available to them in their fridge using the Spoonacular API, view their list of items on their shopping list, and view their expired items so they know what to add to their shopping list. 
+
+Multiple forms are available for the user to add items to each of the databases, such as add items to their fridge, or add items to their shopping list. Users are also provided with convenient buttons which will allow them to delete the item or add to a different table within the database and update the pages accordingly. 
+
+When the user clicks the logout button, they return to the login page and need to login once more to access their items. 
+
+## The App
+This application is deployed on Heroku and can be accessed here --> https://fridge-friend-banana.herokuapp.com/
 
 ## Technologies
 1. Node and Express
