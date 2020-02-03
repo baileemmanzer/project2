@@ -145,11 +145,26 @@ $(document).ready(function() {
     });
   });
 
+  $(document).on("click", ".fridge-shop", function(event) {
+    event.preventDefault();
+    var ingredientId = $(this).data("id");
+    var ingredientData = {
+      ingredient: $(this).data("ingredient"),
+      quantity: $(this).data("quantity")
+    };
+    $.ajax("/api/move-fridge-to-shopping/" + ingredientId, {
+      type: "POST",
+      data: ingredientData
+    }).then(function() {
+      window.location.replace("/my-fridge");
+    });
+  });
+
   // Route to move ingredient from shopping list to kitchen inventory
   $(document).on("click", "#shop-fridge", function() {
     event.preventDefault();
     var ingredientId = $(this).data("id");
-    var ingredient = $(this).data("ingredient")
+    var ingredient = $(this).data("ingredient");
     $("#myModal").on("shown.bs.modal", function() {
       $("#myInput").trigger("focus");
     });
