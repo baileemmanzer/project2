@@ -55,4 +55,25 @@ module.exports = function(app) {
       res.json(deleted)
     });
   });
+
+  app.post("/api/move-expired-to-shopping/:id", function(req, res) {
+    db.ShoppingList.create({...req.body, UserId: req.user.id}).then(function(newShopItem) {
+      console.log("expired item moved to shopping list");
+      res.json(newShopItem);
+    });
+    db.KitchenInventory.destroy({where: {id: req.params.id} }).then(function(deleted){
+      console.log("Id: " + deleted + " was removed from kitchen inventory");
+    });
+    
+  });
+
+  app.post("/api/move-shopping-to-fridge/:id", function(req, res) {
+    db.KitchenInventory.create({... req.body, UserId: req.user.id}).then(function(newFridgeItem) {
+      console.log("New item from shopping list added to kitchen inventory");
+      res.json(newFridgeItem);
+    });
+    db.ShoppingList.destroy({where: {id: req.params.id} }).then(function(deleted) {
+      console.log("Id: " + deleted + "was removed from shopping list");
+    });
+  });
 };

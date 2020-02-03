@@ -59,16 +59,4 @@ db.sequelize.sync(syncOptions).then(function() {
 // Starts Cron
 // cron.start();
 
-// Dont uncomment this code or it will send a text message using our trial dollars
-// client.messages
-//   .create({
-//     to: "",
-//     from: process.env.TWILIO_TRIAL_NUMBER,
-//     body:
-//       "Your ---placeholder--- will expire in 2 days, would you like to add it to your shopping list?"
-//   })
-//   .then(function(message) {
-//     console.log(message.sid);
-//   });
-
 module.exports = app;

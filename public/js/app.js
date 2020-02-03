@@ -10,7 +10,6 @@ $(document).ready(function() {
         .val()
         .trim()
     };
-    console.log(userData);
     $.post("/api/signup", userData)
       .then(function(res) {
         window.location.replace(res);
@@ -57,7 +56,6 @@ $(document).ready(function() {
         .val()
         .trim()
     };
-    console.log(ingredientData);
     $.ajax("/api/kitcheninventory", {
       type: "POST",
       data: ingredientData
@@ -78,7 +76,6 @@ $(document).ready(function() {
         .val()
         .trim()
     };
-    console.log(sLIngredientData);
     $.ajax("/api/shoppinglist", {
       type: "POST",
       data: sLIngredientData
@@ -96,7 +93,6 @@ $(document).ready(function() {
       ingrArray.push($(this).val());
     });
     ingrArray = ingrArray.join(",+");
-    console.log(ingrArray);
     window.location.replace("/recipes/" + ingrArray);
   });
 
@@ -104,7 +100,6 @@ $(document).ready(function() {
   $(".view-recipe").on("click", function(event) {
     event.preventDefault();
     var id = $(this).data("id");
-    console.log(id);
     $.ajax("/view-recipe/:" + id, {
       type: "GET"
     }).then(function() {
@@ -115,9 +110,8 @@ $(document).ready(function() {
   // Deletes kitchen inventory items if delete button is clicked
   $(document.body).on("click", ".fridge-delete", function(event) {
     event.preventDefault();
-    var ingredient = $(this).data("id");
-    console.log(ingredient);
-    $.ajax("/api/kitcheninventory/" + ingredient, {
+    var ingredientId = $(this).data("id");
+    $.ajax("/api/kitcheninventory/" + ingredientId, {
       type: "DELETE"
     }).then(function() {
       console.log("Removed ingredient from kitchen");
@@ -132,6 +126,53 @@ $(document).ready(function() {
       type: "GET"
     }).then(function() {
       window.location.replace("/find-recipes");
+    });
+  });
+
+  // Route to move expired ingredient from kitchen inventory to shopping list
+  $(document).on("click", ".exp-shop", function(event) {
+    event.preventDefault();
+    var ingredientId = $(this).data("id");
+    var ingredientData = {
+      ingredient: $(this).data("ingredient"),
+      quantity: $(this).data("quantity")
+    };
+    $.ajax("/api/move-expired-to-shopping/" + ingredientId, {
+      type: "POST",
+      data: ingredientData
+    }).then(function() {
+      window.location.replace("/expired-items");
+    });
+  });
+
+  // Route to move ingredient from shopping list to kitchen inventory
+  $(document).on("click", "#shop-fridge", function() {
+    event.preventDefault();
+    var ingredientId = $(this).data("id");
+    var ingredient = $(this).data("ingredient")
+    $("#myModal").on("shown.bs.modal", function() {
+      $("#myInput").trigger("focus");
+    });
+    $(document).on("click", "#shop-submit-final", function() {
+      var ingredientData = {
+        ingredient: ingredient,
+        quantity: $("#shop-quantity")
+          .val()
+          .trim(),
+        expirationDate: $("#shop-expiration-date")
+          .val()
+          .trim(),
+        frequency: $("#shop-frequency")
+          .val()
+          .trim()
+      };
+      console.log(ingredientData);
+      $.ajax("/api/move-shopping-to-fridge/" + ingredientId, {
+        type: "Post",
+        data: ingredientData
+      }).then(function() {
+        window.location.replace("/shopping-list");
+      });
     });
   });
 });
