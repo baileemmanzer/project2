@@ -113,15 +113,11 @@ module.exports = function(app) {
         UserId: req.user.id
       }
     }).then(function(result) {
-<<<<<<< HEAD
       console.log(result);
       res.render("shopping-list", {
         ingredients: result,
         style: "shopping-list.css"
       });
-=======
-      res.render("shopping-list", { ingredients: result });
->>>>>>> Changed a bit of things
     });
   });
 
