@@ -1,12 +1,11 @@
 <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-12 text-center">
         <div data-id="{{id}}">
-            <h4>{{ingredient}}</h4>
-            <p>Quantity: {{quantity}}</p>
+            <h4>Ingredient: {{ingredient}}</h4>
             <p>Expires: {{expirationDate}}</p>
-            <p>{{frequency}} Per Week</p>
-            <button data-id="{{id}}" class="fridge-shop">Move to Shopping List</button>
-            <button data-id="{{id}}" class="fridge-delete">Delete</button>
+            <p>Purchase frequency: {{frequency}} Times Per Week</p>
+            <button data-id="{{id}}" class="btn fridge-shop">Move to Shopping List</button>
+            <button data-id="{{id}}" class="btn fridge-delete">Delete</button>
             <hr>
         </div>
     </div>

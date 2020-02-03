@@ -1,0 +1,30 @@
+body{
+    background-image: url(/images/wine.jpg);
+    height: 100vh!important;
+    font-family: 'Montserrat', sans-serif;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: bottom;
+    background-position-x: right;
+    background-color: rgb(253, 250, 250);
+}
+
+.navbar {
+    background-color:pink;
+  }
+  
+  .navbar-brand, .nav-link {
+    color: white;
+    font-weight: bold;
+    
+  }
+
+  #recipe-img {
+    margin-bottom: 20px;
+  }
+
+  .chosen-recipe {
+    color: pink;
+    font-size: 20px;
+  }

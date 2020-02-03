@@ -1,0 +1,39 @@
+#shopping-list {
+    font-size: 30px;
+    color: pink;
+    
+}
+
+.navbar {
+    background-color:pink;
+  }
+  
+  .navbar-brand, .nav-link {
+    color: white;
+    font-weight: bold;
+    
+  }
+
+  .shopping-list-container {
+      color: pink;
+      font-size: 20px;
+      margin-top: 20px;
+      
+  }
+
+  body {
+    background-image: url(/images/ice-cream.jpg);
+    height: 100vh!important;
+    font-family: 'Montserrat', sans-serif;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-position-x: right;
+    background-attachment: fixed;
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  #addToShoppingList {
+      background-color: rgb(127, 233, 233)
+  }
+  

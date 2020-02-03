@@ -1,14 +1,22 @@
 {{> nav-block}}
-<div class="container">
+<div class="fridge-page">
   <div class="row">
-    <div class="col-6">
-      <h2>My Fridge</h2>
-      <p>Click ingredients you want to search for a recipe!</p>
-      {{#each ingredients}}
-      {{> ingredients-block}}
-      {{/each}}
+    <div class="col-md-8 fridge-items">
+      <h2>Here are the current ingredients in your fridge:</h2>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="container ingr-block">
+              {{#each ingredients}}
+              {{> ingredients-block}}
+              {{/each}}
+            </div>
+          </div>
+        </div>
+
+      </div>
     </div>
-    <div class="col-6">
+    <div class="col-md-4" id="add-item">
       <h2>Add New Items</h2>
       <form>
         <div class="form-group">
@@ -27,9 +35,10 @@
           <label for="frequency">Freqency:</label>
           <input type="text" class="form-control" id="frequency" placeholder="Enter Frequency(per week)">
         </div>
-        <button id="submit-ingredient">Create</button>
+        <button class="btn" id="submit-ingredient">Add Item</button>
       </form>
 
     </div>
   </div>
+</div>
 </div>

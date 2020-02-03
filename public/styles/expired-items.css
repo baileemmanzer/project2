@@ -1,0 +1,28 @@
+body {
+    color: pink;
+    background-image: url(/images/cupcakes.jpg);
+    background-size: cover;
+    height: 100vh!important;
+    background-repeat: no-repeat;
+    color: black;
+    font-family: 'Montserrat', sans-serif;
+    background-attachment: fixed;
+}
+
+.navbar {
+    background-color:pink;
+  }
+  
+  .navbar-brand, .nav-link {
+    color: white;
+    font-weight: bold;
+    
+  }
+
+  .exp-shop {
+      background-color: rgb(127, 233, 233);
+  }
+
+  .expired-item-block {
+    font-family: 'Montserrat', sans-serif;
+  }
