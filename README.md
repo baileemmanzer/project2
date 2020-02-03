@@ -1,4 +1,6 @@
 # FRIDGE FRIEND
+Can't decide what to eat? Forgot that milk was about to expire, but you already went shopping? Fridge Friend is a full stack web application for people who want an easy and convenient way to manage their food and shopping endeavors. Keep track of your fridge, pantry, grocery shopping list, and favorite recipes all in one place!
+
 ![image](public/images/README.png)
 Can't decide what to eat? Forgot that milk was about to expire, but you already went shopping? Fridge Friend is a full stack web application for people who want an easy and convenient way to manage their food and shopping endeavors. Keep track of your fridge, pantry, grocery shopping list, and favorite recipes all in one place!
 
@@ -19,6 +21,7 @@ This application is deployed on Heroku and here is the link --> (https://fridge-
 8. Cron
 9. Handlebars
 10. Bootstrap
+11. Wow.js
 
 ## Contributors
 > Nicholas Herrick
