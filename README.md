@@ -19,6 +19,8 @@ This application is deployed on Heroku and here is the link --> (https://fridge-
 8. Cron
 9. Handlebars
 10. Bootstrap
+11. Wow.js
+
 
 ## Contributors
 > Nicholas Herrick
