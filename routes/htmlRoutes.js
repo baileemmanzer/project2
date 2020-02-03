@@ -1,3 +1,4 @@
+// Requirements
 var db = require("../models");
 var unirest = require("unirest");
 var apiKey = process.env.SPOONACULAR_API;
@@ -18,7 +19,6 @@ module.exports = function(app) {
         UserId: req.user.id
       }
     }).then(function(result) {
-      console.log(result);
       res.render("find-recipes", {
         ingredients: result,
         style: "find-recipes.css"
@@ -62,7 +62,6 @@ module.exports = function(app) {
       .header("X-RapidAPI-Key", apiKey)
       .end(function(result) {
         if (result.status === 200) {
-          console.log(result.body);
           res.render("recipes", {
             viewRecipe: result.body,
             style: "selected-recipe.css"
@@ -84,7 +83,6 @@ module.exports = function(app) {
       var expiredIngredients = [];
       for (var i = 0; i < result.length; i++) {
         var items = result[i].dataValues;
-        console.log(items);
         var expDate = moment(items.expirationDate).format("MM-DD-YYYY");
         if (moment(expDate).isBefore(moment())) {
           expiredIngredients.push(items);
@@ -115,11 +113,15 @@ module.exports = function(app) {
         UserId: req.user.id
       }
     }).then(function(result) {
+<<<<<<< HEAD
       console.log(result);
       res.render("shopping-list", {
         ingredients: result,
         style: "shopping-list.css"
       });
+=======
+      res.render("shopping-list", { ingredients: result });
+>>>>>>> Changed a bit of things
     });
   });
 

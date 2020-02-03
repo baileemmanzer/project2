@@ -1,4 +1,5 @@
 $(document).ready(function() {
+  // Sends registration info from the login page
   $("#registerButton").on("click", function(event) {
     event.preventDefault();
     var userData = {
@@ -9,7 +10,6 @@ $(document).ready(function() {
         .val()
         .trim()
     };
-    console.log(userData);
     $.post("/api/signup", userData)
       .then(function(res) {
         window.location.replace(res);
@@ -19,6 +19,7 @@ $(document).ready(function() {
       });
   });
 
+  // Sends login info from the login page
   $("#loginButton").on("click", function(event) {
     event.preventDefault();
     var userData = {
@@ -37,6 +38,8 @@ $(document).ready(function() {
         console.log(err);
       });
   });
+
+  // Sends a newly added ingredient from the fridge page
   $(document).on("click", "#submit-ingredient", function(event) {
     event.preventDefault();
     var ingredientData = {
@@ -53,7 +56,6 @@ $(document).ready(function() {
         .val()
         .trim()
     };
-    console.log(ingredientData);
     $.ajax("/api/kitcheninventory", {
       type: "POST",
       data: ingredientData
@@ -74,7 +76,6 @@ $(document).ready(function() {
         .val()
         .trim()
     };
-    console.log(sLIngredientData);
     $.ajax("/api/shoppinglist", {
       type: "POST",
       data: sLIngredientData
@@ -84,6 +85,7 @@ $(document).ready(function() {
     });
   });
 
+  // Takes checked ingredients and sends it to the recipes api to find recipes based on those ingredients
   $(".submit-ingr").on("click", function(event) {
     event.preventDefault();
     var ingrArray = [];
@@ -91,14 +93,13 @@ $(document).ready(function() {
       ingrArray.push($(this).val());
     });
     ingrArray = ingrArray.join(",+");
-    console.log(ingrArray);
     window.location.replace("/recipes/" + ingrArray);
   });
 
+  // Sends id of a recipe when a recipe is clicked
   $(".view-recipe").on("click", function(event) {
     event.preventDefault();
     var id = $(this).data("id");
-    console.log(id);
     $.ajax("/view-recipe/:" + id, {
       type: "GET"
     }).then(function() {
@@ -106,15 +107,72 @@ $(document).ready(function() {
     });
   });
 
-  $(document).on("click", ".fridge-delete", function(event) {
+  // Deletes kitchen inventory items if delete button is clicked
+  $(document.body).on("click", ".fridge-delete", function(event) {
     event.preventDefault();
-    var ingredient = $(this).data("id");
-    console.log(ingredient);
-    $.ajax("/api/kitcheninventory/" + ingredient, {
+    var ingredientId = $(this).data("id");
+    $.ajax("/api/kitcheninventory/" + ingredientId, {
       type: "DELETE"
     }).then(function() {
       console.log("Removed ingredient from kitchen");
       location.reload();
+    });
+  });
+
+  // Goes back to the find recipes page if the back button is clicked
+  $(document).on("click", "#recipes-back-button", function(event) {
+    event.preventDefault();
+    $.ajax("/find-recipes", {
+      type: "GET"
+    }).then(function() {
+      window.location.replace("/find-recipes");
+    });
+  });
+
+  // Route to move expired ingredient from kitchen inventory to shopping list
+  $(document).on("click", ".exp-shop", function(event) {
+    event.preventDefault();
+    var ingredientId = $(this).data("id");
+    var ingredientData = {
+      ingredient: $(this).data("ingredient"),
+      quantity: $(this).data("quantity")
+    };
+    $.ajax("/api/move-expired-to-shopping/" + ingredientId, {
+      type: "POST",
+      data: ingredientData
+    }).then(function() {
+      window.location.replace("/expired-items");
+    });
+  });
+
+  // Route to move ingredient from shopping list to kitchen inventory
+  $(document).on("click", "#shop-fridge", function() {
+    event.preventDefault();
+    var ingredientId = $(this).data("id");
+    var ingredient = $(this).data("ingredient")
+    $("#myModal").on("shown.bs.modal", function() {
+      $("#myInput").trigger("focus");
+    });
+    $(document).on("click", "#shop-submit-final", function() {
+      var ingredientData = {
+        ingredient: ingredient,
+        quantity: $("#shop-quantity")
+          .val()
+          .trim(),
+        expirationDate: $("#shop-expiration-date")
+          .val()
+          .trim(),
+        frequency: $("#shop-frequency")
+          .val()
+          .trim()
+      };
+      console.log(ingredientData);
+      $.ajax("/api/move-shopping-to-fridge/" + ingredientId, {
+        type: "Post",
+        data: ingredientData
+      }).then(function() {
+        window.location.replace("/shopping-list");
+      });
     });
   });
 });
