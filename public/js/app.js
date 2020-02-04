@@ -190,4 +190,16 @@ $(document).ready(function() {
       });
     });
   });
+
+  // Display expiration dates as (MM/DD/YYYY)
+  // var htmlExpDates = $(".expires-text span").html();
+  // $(".expires-text span").html(
+  //   moment(htmlExpDates, "YYYY/MM/DD").format("MM/DD/YYYY")
+  // );
+  // var htmlExpDates = $(".expires-text span");
+  // htmlExpDates.each(function(i, obj) {
+  //   console.log(obj);
+  //   htmlExpDates.html(moment(obj, "YYYY/MM/DD").format("MM/DD/YYYY"));
+  // });
+  // date.html(moment(htmlExpDates, "YYYY/MM/DD").format("MM/DD/YYYY"));
 });
