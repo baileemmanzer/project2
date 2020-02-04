@@ -2,7 +2,7 @@
     <div class="col-md-12 text-center">
         <div data-id="{{id}}">
             <h4>Ingredient: {{ingredient}}</h4>
-            <p>Expires: {{expirationDate}}</p>
+            <p class="expires-text">Expires: <span>{{expirationDate}}</span></p>
             <p>Purchase frequency: {{frequency}} Times Per Week</p>
             <button data-id="{{id}}" data-ingredient="{{ingredient}}" data-quantity="{{quantity}}" class="btn fridge-shop">Move to Shopping List</button>
             <button data-id="{{id}}" class="btn fridge-delete">Delete</button>
